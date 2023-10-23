@@ -23,7 +23,7 @@ class HeaderFile:
         self.filedata.append("#define __{}_H__".format(self.filename.upper().replace(".H", "")))
         self.filedata.append("")
         self.filedata.append("#include <stdint.h>")
-        self.filedata.append("#include <fontgen_common.h>")
+        self.filedata.append('#include "fontgen_common.h"')
         self.filedata.append("")
         self.filedata.append("extern {} {};".format("FontCommon", self.filename + "_" + str(self.x) + "x" + str(self.y)))
         self.filedata.append("")
@@ -57,7 +57,7 @@ class SourceFile:
         file.close() 
     
     def generateData(self):
-        self.filedata.append("#include '{}.h'".format(self.filename))
+        self.filedata.append('#include "{}.h"'.format(self.filename))
         self.filedata.append("static const uint8_t {} [] = ".format(self.filename + str(self.x) + "x" + str(self.y)))
         self.filedata[-1] += "{"
         cnt = 8
