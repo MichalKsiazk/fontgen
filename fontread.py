@@ -23,13 +23,14 @@ class ReadDialog(QDialog):
         self.projectPath = ""
         self.asciiSymbols = asciiSymbols
         self.lines = []
+        self._parent = parent
         
     def readProject(self):
         file = open(self.projectPath, 'r')
         self.lines = file.readlines()
         self.dataLineStart = self.readStartLine()
+        self._parent.restartProject()
         self.readDataContent(self.dataLineStart)
-        self.projectData.restart
         self.close()
         
         
@@ -51,7 +52,8 @@ class ReadDialog(QDialog):
                         f = filter(str.isdigit, x)
                         x = int("".join(f))
                         self.projectData.x = x
-                        print("x = ", x)
+                        print("x = ", self.projectData.x)
+                        print("y = ", self.projectData.y)
                         print("name = ", name)
                         return j + 1
                         

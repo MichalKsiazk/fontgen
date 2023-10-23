@@ -6,4 +6,6 @@
 
 extern FontCommon expfont_9x9;
 
+void expfont_Interface(const char* str);
+
 #endif

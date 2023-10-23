@@ -19,3 +19,11 @@ class SymbolButton(QPushButton):
     def onclick(self):
         print(self.text())
         self.onClickCallback(self)
+
+    def isEmpty(self):
+        empty:bool = True
+        for r in self.bitMap:
+            if any(r):
+                empty = False
+                return False
+        return True

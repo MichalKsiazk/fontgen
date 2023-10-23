@@ -47,8 +47,8 @@ class MainWindow(QtWidgets.QMainWindow):
         
         
         self.actionNew.triggered.connect(self.createNewFileDialog)
-        self.actionOpen.triggered.connect(self.readProjectDialog)
-        self.actionGenerateFiles.triggered.connect(self.generateFiles)
+        self.actionGenerateFullFont.triggered.connect(self.generateFullAsciiFont)
+        self.actionGenerateCompressedFont.triggered.connect(self.generateCompressedFont)
         
         self.currentAsciiLabel = QLabel("ASCII    ")
         self.statusbar.addWidget( QLabel("   "))
@@ -120,8 +120,12 @@ class MainWindow(QtWidgets.QMainWindow):
         readDialog.exec()
     
     @QtCore.pyqtSlot()  
-    def generateFiles(self):
-        font = GeneratedFont(self.projectData.name, self.projectData.x, self.projectData.y, self.asciiSymbols)
+    def generateFullAsciiFont(self):
+        font = GeneratedFont(self.projectData.name, self.projectData.x, self.projectData.y, self.asciiSymbols, False)
+
+    @QtCore.pyqtSlot()  
+    def generateCompressedFont(self):
+        font = GeneratedFont(self.projectData.name, self.projectData.x, self.projectData.y, self.asciiSymbols, True)
 
     @QtCore.pyqtSlot() 
     def changeGridSize(self):
