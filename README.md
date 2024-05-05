@@ -1,0 +1,1 @@
+pisane na kolanie
