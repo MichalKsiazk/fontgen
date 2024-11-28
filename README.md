@@ -1,2 +1,1 @@
-(pisane na kolanie)
-simple window app in pyqt to draw ascii fonts and convert them into .c .h files
+simple pyqt app for drawing ascii fonts and converting them into .c .h files
